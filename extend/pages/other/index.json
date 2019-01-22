@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-button": "../../extend/dist/button/index"
+  }
+}

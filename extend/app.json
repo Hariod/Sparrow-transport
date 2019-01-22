@@ -1,0 +1,37 @@
+{
+  "pages":[
+  
+
+    "pages/user/index/index",
+      "pages/user/order/order",
+      "pages/user/my/my",
+
+
+
+    "pages/driver/index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+     "navigationBarBackgroundColor": "#5bbef5",
+    "navigationBarTitleText": "雀送",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#5bbef5",
+    
+    "list": [
+      {
+        "pagePath": "pages/user/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/order/order",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/user/my/my",
+        "text": "我的"
+      }
+    ]
+  }
+}

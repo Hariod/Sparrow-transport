@@ -1,0 +1,48 @@
+<!--pages/my/my.wxml-->
+<!-- <view class='a'> -->
+<view class="header" bindtap='user_content'>
+  <view class='baowei'>
+    <!-- <view class="baowei"> -->
+    <open-data type="userAvatarUrl" class="user_img"></open-data>
+    <!-- </view> -->
+  </view>
+
+  <view class='user_nickname'>
+    <text>用户名——阿西吧</text>
+  </view>
+</view>
+<view class='xt'></view>
+
+
+<van-cell title="我的收货地址" icon="location-o" is-link />
+<van-cell title="客服电话：13409857017" icon="service-o" is-link />
+<van-cell title="意见反馈" icon="records" is-link />
+<!-- <view class='my2'> -->
+<!-- <view wx:if="{{userinfo!=null}}"> -->
+<!-- <view>
+    <view class='xg' bindtap='repswd'>
+      <view class='x'> -->
+<!-- <image class='m' src='../image/xgmm.png'></image> -->
+<!-- </view>
+      <view class='t'>
+        <text>修改密码</text>
+      </view>
+    </view>
+    <view class='xg' bindtap='logout'>
+      <view class='x'> -->
+<!-- <image class='m' src='../image/tcdl.png'></image> -->
+<!-- </view>
+      <view class='t'>
+        <text>退出登录</text>
+      </view>
+    </view>
+
+  </view> -->
+
+<!-- <view class='cp'>
+    <view class='xi'>
+      Copyright © 1998-2018 鑫众汇汽配
+    </view>
+  </view>
+</view> -->
+<!-- </view> -->

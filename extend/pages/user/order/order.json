@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+      "van-tab": "../../../extend/dist/tab/index",
+      "van-tabs": "../../../extend/dist/tabs/index",
+        "van-row": "../../../extend/dist/row/index",
+        "van-col": "../../../extend/dist/col/index",
+        "van-tag": "../../../extend/dist/tag/index",
+        "van-button": "../../../extend/dist/button/index"
+  }
+}

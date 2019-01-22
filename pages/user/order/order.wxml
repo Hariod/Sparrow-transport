@@ -1,0 +1,196 @@
+<van-tabs animated>
+  <van-tab title="全部">
+
+    <view class='order_items'>
+
+      <view class='order_item'>
+        <!-- <view class='xt'></view> -->
+        <view class='item_type'>
+          <view class='type_tab'>
+            <van-tag type="primary">代购</van-tag>
+          </view>
+          <view class='type_argu'>生鲜/6kg</view>
+          <view class='type_state'>待付款</view>
+        </view>
+        <view class='item_loca'>
+          <view class='loca'>
+            <view class='deli_info_all'>
+              <view class='deli_info'>
+                <view class='yuandian'>
+                  <image style='width:20px;height:20px;' src='../../../extend/images/q_start.png'></image>
+                </view>
+                <view class='start_ct'>
+                  <!-- <view class='s_t' bindtap='test'> 物品从哪里发出</view> -->
+
+                  <view class='q_loca_info'>
+                    <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                    <view class='q_loca_n_p'>
+                      <text>姓名</text>
+                      <text style='margin-left:10px;'>手机号</text>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+              <view class='deli_info'>
+                <view class='yuandian'>
+                  <image style='width:20px;height:20px;' src='../../../extend/images/q_fin.png'></image>
+                </view>
+                <view class='start_ct'>
+                  <!-- <view class='f_t'> 物品送到哪里去</view> -->
+                  <view class='q_loca_info'>
+                    <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                    <view class='q_loca_n_p'>
+                      <text>姓名</text>
+                      <text style='margin-left:10px;'>手机号</text>
+                    </view>
+                  </view>
+
+                </view>
+                <!-- <view class='right_flag'>></view> -->
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class='item_time'>
+          <view class='time_date'>2019-01-21 18:20</view>
+          <view class='time_btn'>
+            <view class='item_btn'>立即付款</view>
+          </view>
+        </view>
+      </view>
+      <view class='order_item'>
+        <!-- <view class='xt'></view> -->
+        <view class='item_type'>
+          <view class='type_tab'>
+            <van-tag type="success">取送件</van-tag>
+          </view>
+          <view class='type_argu'>生鲜/6kg</view>
+          <view class='type_state'>已取消</view>
+        </view>
+        <view class='item_loca'>
+          <view class='loca'>
+            <view class='deli_info_all'>
+              <view class='deli_info'>
+                <view class='yuandian'>
+                  <image style='width:20px;height:20px;' src='../../../extend/images/q_start.png'></image>
+                </view>
+                <view class='start_ct'>
+                  <!-- <view class='s_t' bindtap='test'> 物品从哪里发出</view> -->
+
+                  <view class='q_loca_info'>
+                    <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                    <view class='q_loca_n_p'>
+                      <text>姓名</text>
+                      <text style='margin-left:10px;'>手机号</text>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+              <view class='deli_info'>
+                <view class='yuandian'>
+                  <image style='width:20px;height:20px;' src='../../../extend/images/q_fin.png'></image>
+                </view>
+                <view class='start_ct'>
+                  <!-- <view class='f_t'> 物品送到哪里去</view> -->
+                  <view class='q_loca_info'>
+                    <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                    <view class='q_loca_n_p'>
+                      <text>姓名</text>
+                      <text style='margin-left:10px;'>手机号</text>
+                    </view>
+                  </view>
+
+                </view>
+                <!-- <view class='right_flag'>></view> -->
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class='item_time'>
+          <view class='time_date'>2019-01-21 18:20</view>
+          <view class='time_btn'>
+            <view class='item_btn'>立即付款</view>
+          </view>
+        </view>
+      </view>
+      <view class='order_item'>
+        <!-- <view class='xt'></view> -->
+        <view class='item_type'>
+          <view class='type_tab'>
+            <van-tag type="primary">代购</van-tag>
+          </view>
+          <view class='type_argu'>生鲜/6kg</view>
+          <view class='type_state'>待付款</view>
+        </view>
+        <view class='item_loca'>
+          <view class='loca'>
+            <view class='deli_info_all'>
+              <view class='deli_info'>
+                <view class='yuandian'>
+                  <image style='width:20px;height:20px;' src='../../../extend/images/q_start.png'></image>
+                </view>
+                <view class='start_ct'>
+                  <!-- <view class='s_t' bindtap='test'> 物品从哪里发出</view> -->
+
+                  <view class='q_loca_info'>
+                    <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                    <view class='q_loca_n_p'>
+                      <text>姓名</text>
+                      <text style='margin-left:10px;'>手机号</text>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+              <view class='deli_info'>
+                <view class='yuandian'>
+                  <image style='width:20px;height:20px;' src='../../../extend/images/q_fin.png'></image>
+                </view>
+                <view class='start_ct'>
+                  <!-- <view class='f_t'> 物品送到哪里去</view> -->
+                  <view class='q_loca_info'>
+                    <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                    <view class='q_loca_n_p'>
+                      <text>姓名</text>
+                      <text style='margin-left:10px;'>手机号</text>
+                    </view>
+                  </view>
+
+                </view>
+                <!-- <view class='right_flag'>></view> -->
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class='item_time'>
+          <view class='time_date'>2019-01-21 18:20</view>
+          <view class='time_btn'>
+            <view class='item_btn'>立即付款</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </van-tab>
+  <van-tab title="待付款">内容 2</van-tab>
+  <van-tab title="已完成">内容 3</van-tab>
+  <van-tab title="已取消">内容 4</van-tab>
+</van-tabs>

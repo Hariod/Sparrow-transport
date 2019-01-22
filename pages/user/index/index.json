@@ -1,0 +1,23 @@
+{
+  "usingComponents": {
+    "van-tab": "../../../extend/dist/tab/index",
+    "van-tabs": "../../../extend/dist/tabs/index",
+    "van-submit-bar": "../../../extend/dist/submit-bar/index",
+    "van-row": "../../../extend/dist/row/index",
+    "van-col": "../../../extend/dist/col/index",
+    "van-picker": "../../../extend/dist/picker/index",
+    "van-cell": "../../../extend/dist/cell/index",
+    "van-cell-group": "../../../extend/dist/cell-group/index",
+    "van-collapse": "../../../extend/dist/collapse/index",
+    "van-collapse-item": "../../../extend/dist/collapse-item/index",
+    "van-popup": "../../../extend/dist/popup/index",
+    "van-button": "../../../extend/dist/button/index",
+    "van-nav-bar": "../../../extend/dist/nav-bar/index",
+    "van-tree-select": "../../../extend/dist/tree-select/index",
+    "van-field": "../../../extend/dist/field/index",
+    "van-panel": "../../../extend/dist/panel/index",
+      "van-radio": "../../../extend/dist/radio/index",
+      "van-radio-group":"../../../extend/dist/radio-group/index",
+        "van-icon": "../../../extend/dist/icon/index"
+  }
+}

@@ -1,0 +1,327 @@
+<view style='position:fixed;left:0px;right:0px;'>
+  <view class="swiper-tab">
+    <view class='choose_loca' bindtap="choose_loca">
+
+      <van-icon name="location-o" /> 上海</view>
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">取送件</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">代购</view>
+    <view class="check_notify" bindtap="check_notify">
+      <!-- <image style='width:20px;height:20px;' src='../../../extend/images/notify.png'></image> -->
+    </view>
+  </view>
+
+  <swiper current="{{currentTab}}" duration="500" style="height:{{winHeight - 31}}px" class='main_content'>
+    <swiper-item catchtouchmove="stopTouchMove" class="first-swiper-item">
+
+      <scroll-view scroll-y="true" style='height:{{winHeight - 150}}px;'>
+
+        <view class='ad_class'>
+          <swiper class="categoryList" autoplay="true" circular='true' style='width:100%;height: 170rpx;'>
+            <block wx:for="{{adver_img}}" wx:key="">
+              <swiper-item>
+                <image style='width:100%;height: 170rpx;' mode='aspectFill' style='width:100%;' src='{{item}}'></image>
+              </swiper-item>
+            </block>
+          </swiper>
+          <!-- <image mode='aspectFill' style='width:100%;height: 170rpx;' src='../../../extend/images/ad.png'></image> -->
+        </view>
+
+        <!--/// 广告位 -->
+        <!-- 起点终点 -->
+        <view class='deli_info_all'>
+          <view class='deli_info'>
+            <view class='yuandian'>
+              <image style='width:20px;height:20px;' src='../../../extend/images/q_start.png'></image>
+            </view>
+            <view class='start_ct'>
+              <view class='s_t' bindtap='test'> 物品从哪里发出</view>
+
+              <!-- <view class='q_loca_info'>
+                <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                <view class='q_loca_n_p'>
+                  <text>姓名</text>
+                  <text style='margin-lefet:10px;'>手机号</text>
+                </view>
+              </view> -->
+
+            </view>
+            <view class='right_flag'><van-icon name="arrow" /></view>
+          </view>
+          <view class='deli_info'>
+            <view class='yuandian'>
+              <image style='width:20px;height:20px;' src='../../../extend/images/q_fin.png'></image>
+            </view>
+            <view class='start_ct'>
+              <view class='f_t'> 物品送到哪里去</view>
+
+              <!-- <view class='q_loca_info'>
+                <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                <view class='q_loca_n_p'>
+                  <text>姓名</text>
+                  <text style='margin-lefet:10px;'>手机号</text>
+                </view>
+              </view> -->
+            </view>
+            <view class='right_flag'><van-icon name="arrow" /></view>
+          </view>
+        </view>
+        <!-- 参数选择 -->
+        <view class='argu_choose'>
+          <van-row>
+            <van-col span="12">
+              <van-cell title="立即取件" is-link='{{true}}' bind:click="show_c_t" />
+              <van-popup show="{{ show_c_t }}" position="bottom" bind:close="onClose">
+                <!-- <van-picker show-toolbar title="取件时间" bind:change="qj_now" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" /> -->
+
+                <van-nav-bar title="取件时间" left-text="取消" right-text="确定" left-arrow="{{true}}" bind:click-left="ljqj_qx_f" bind:click-right="ljqj_qd_f" />
+                <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" />
+
+              </van-popup>
+
+            </van-col>
+            <van-col span="12">
+              <van-cell style="text-align:right;" title="选择物品类型、重量" is-link='{{true}}' bind:click='c_t_w_f' />
+              <van-popup show="{{ show_t_w }}" position="bottom" bind:close="onClose">
+                <!-- <van-picker show-toolbar title="取件时间" bind:change="qj_now" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" /> -->
+
+                <van-nav-bar title="物品类型" left-text="取消" right-text="确定" left-arrow="{{false}}" bind:click-left="t_w_qx_f" bind:click-right="t_w_qd_f" />
+                <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" />
+
+              </van-popup>
+            </van-col>
+
+          </van-row>
+          <van-cell title="红包" value="暂无可用红包" is-link='{{true}}' />
+
+          <van-cell title="更多" bind:click='more_f' value="小费、备注" is-link='{{true}}' arrow-direction='{{more_arrow}}' />
+          <view class='more_f' hidden='{{more_flag}}'>
+            <van-cell title="货损险" value="未选购" is-link='{{true}}' bind:click='hsx_f' />
+            <van-popup show="{{ show_hsx}}" position="bottom" bind:close="hsx_onClose">
+              <!-- <van-picker show-toolbar title="取件时间" bind:change="qj_now" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" /> -->
+              <van-nav-bar title="货损险" left-text="取消" right-text="确定" left-arrow="{{false}}" bind:click-left="hsx_qx_f" bind:click-right="hsx_qd_f" />
+              <view>
+         
+                <view class='hsx_items'>
+                  <view class='hsx_txt'>
+                    <view class='hsx_title'>1元货损险</view>
+                    <view class='hsx_content'>若物品损坏或丢失，最高可赔付300元</view>
+                  </view>
+                  <view class='hsx_radio'>
+                    <van-radio-group style='padding-left:30px;' value="{{ radio }}" bind:change="hsx_dx_onChange">
+                      <van-radio name="1"></van-radio>
+
+                    </van-radio-group>
+                  </view>
+                </view>
+                <view class='hsx_items'>
+                  <view class='hsx_txt'>
+                    <view class='hsx_title'>1元货损险</view>
+                    <view class='hsx_content'>若物品损坏或丢失，最高可赔付300元</view>
+                  </view>
+                  <view class='hsx_radio'>
+                    <van-radio-group style='padding-left:30px;' value="{{ radio }}" bind:change="hsx_dx_onChange">
+                      <van-radio name="1"></van-radio>
+
+                    </van-radio-group>
+                  </view>
+                </view>
+                <view class='hsx_items'>
+                  <view class='hsx_txt'>
+                    <view class='hsx_title'>1元货损险</view>
+                    <view class='hsx_content'>若物品损坏或丢失，最高可赔付300元</view>
+                  </view>
+                  <view class='hsx_radio'>
+                    <van-radio-group style='padding-left:30px;' value="{{ radio }}" bind:change="hsx_dx_onChange">
+                      <van-radio name="1"></van-radio>
+
+                    </van-radio-group>
+                  </view>
+                </view>
+                <view class='hsx_items'>
+                  <view class='hsx_txt'>
+                    <view class='hsx_title'>1元货损险</view>
+                    <view class='hsx_content'>若物品损坏或丢失，最高可赔付300元</view>
+                  </view>
+                  <view class='hsx_radio'>
+                    <van-radio-group style='padding-left:30px;' value="{{ radio }}" bind:change="hsx_dx_onChange">
+                      <van-radio name="1"></van-radio>
+
+                    </van-radio-group>
+                  </view>
+                </view>
+              </view>
+            </van-popup>
+            <van-cell title="小费" value="加小费抢单更快" is-link='{{true}}' bind:click='xf_f' />
+            <van-popup show="{{ show_xf}}" position="bottom" bind:close="hsx_onClose">
+              <!-- <van-picker show-toolbar title="取件时间" bind:change="qj_now" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" /> -->
+              <van-nav-bar title="小费" left-text="取消" right-text="确定" left-arrow="{{false}}" bind:click-left="xf_qx_f" bind:click-right="xf_qd_f" />
+              <view>
+                <view class='xf_items'>
+
+            
+                </view>
+                <view class='xf_other'></view>
+                <view class='xf_random'></view>
+              </view>
+
+            </van-popup>
+            <van-cell-group>
+              <van-field value="{{ message }}" label="备注" type="textarea" placeholder=" " autosize border="{{ false }}" />
+            </van-cell-group>
+          </view>
+
+          <view class='xieyi'>点击查看《帮送服务协议》</view>
+        </view>
+
+
+
+
+      </scroll-view>
+
+    </swiper-item>
+
+    <swiper-item id="ddzq" style="height:100%" catchtouchmove="stopTouchMove" class="twice-swiper-item">
+      <!-- 广告 -->
+      <view class='ad_class'>
+        <swiper class="categoryList" autoplay="true" circular='true' style='width:100%;height: 170rpx;'>
+          <block wx:for="{{adver_img}}" wx:key="">
+            <swiper-item>
+              <image style='width:100%;height: 170rpx;' mode='aspectFill' style='width:100%;' src='{{item}}'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+
+      </view>
+      <!-- <image mode='aspectFill' style='width:100%;height: 170rpx;' src='../../../extend/images/ad.png'></image> -->
+      <scroll-view class='dg_info_all' scroll-y="true" style='height:{{winHeight - 230}}px;'>
+        <view class=' dg_key_desc '>
+          <view class='key_title '>商品描述关键词</view>
+          <view class='key_content '>
+            <scroll-view scroll-y="true" style='height:100px;'>
+            <textarea style='margin-left:10px;'></textarea>
+            </scroll-view>
+
+          </view>
+        </view>
+           <view class='xt'></view>
+        <view class='dg_choose_argu '>
+       <view class='deli_info_all'>
+          <view class='deli_info'>
+            <view class='yuandian' style='font-size:15px;margin-left:10px;'>
+            购买
+            </view>
+            <view class='start_ct'>
+              <view class='s_t' bindtap='test'> 物品从哪里发出</view>
+
+              <!-- <view class='q_loca_info'>
+                <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                <view class='q_loca_n_p'>
+                  <text>姓名</text>
+                  <text style='margin-lefet:10px;'>手机号</text>
+                </view>
+              </view> -->
+
+            </view>
+         <view class='right_flag'><van-icon name="arrow" /></view>
+          </view>
+          <view class='deli_info'>
+            <view class='yuandian' style='font-size:15px;margin-left:10px;'>
+             收货
+            </view>
+            <view class='start_ct'>
+              <view class='f_t'> 物品送到哪里去</view>
+
+              <!-- <view class='q_loca_info'>
+                <view class='q_loca_addr'>地址详情地址详情地址详情地址详情00号</view>
+                <view class='q_loca_n_p'>
+                  <text>姓名</text>
+                  <text style='margin-lefet:10px;'>手机号</text>
+                </view>
+              </view> -->
+            </view>
+    <view class='right_flag'><van-icon name="arrow" /></view>
+          </view>
+        </view>
+
+         <van-cell title="更多" bind:click='more_f' value="红包、小费" is-link='{{true}}' arrow-direction='{{more_arrow}}' />
+          <view class='more_f' hidden='{{more_flag}}'>
+            <van-cell title="红包" value="暂无可用红包" is-link='{{true}}' bind:click='hsx_f' />
+
+            <van-cell title="小费" value="加小费抢单更快" is-link='{{true}}' bind:click='xf_f' />
+            <van-popup show="{{ show_xf}}" position="bottom" bind:close="hsx_onClose">
+              <!-- <van-picker show-toolbar title="取件时间" bind:change="qj_now" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" /> -->
+              <van-nav-bar title="小费" left-text="取消" right-text="确定" left-arrow="{{false}}" bind:click-left="xf_qx_f" bind:click-right="xf_qd_f" />
+              <view>
+                <view class='xf_items'>
+
+                  <!-- <view class='xf_items_tr'>
+              <view class='xf_items_td'>不加了</view>
+              <view class='xf_items_td'>￥2</view>
+              <view class='xf_items_td'>￥5</view>
+              </view> -->
+                  <!-- <view class='xf_items_tr'>
+              <view class='xf_items_td'>￥10</view>
+              <view class='xf_items_td'>￥15</view>
+              <view class='xf_items_td'>￥20</view>
+              </view> -->
+                </view>
+                <view class='xf_other'></view>
+                <view class='xf_random'></view>
+              </view>
+
+            </van-popup>
+            <!-- <van-cell-group>
+              <van-field value="{{ message }}" label="备注" type="textarea" placeholder=" " autosize border="{{ false }}" />
+            </van-cell-group> -->
+          </view>
+
+          <view class='xieyi'>点击查看《帮买服务协议》</view>
+        </view>
+
+      </scroll-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </swiper-item>
+  </swiper>
+
+
+
+
+  <!-- 订单提交按钮 -->
+
+  <view class="submit_btn" hidden='{{sub_hid}}'>
+    <van-row>
+      <van-col span="16" style='border-bottom:none;'>
+        <view style='font-size:13px;margin-left:10px '>
+          <text>3公里内/</text>
+          <text>预计60分钟送达</text>
+        </view>
+      </van-col>
+      <van-col span="8">
+        <view style='color:red;margin-right:10px;text-align:right; '>
+          888.88元
+        </view>
+      </van-col>
+    </van-row>
+    <van-row>
+      <button>
+        <view style='background-color:#5bbef5;margin:10px; 2px;border-radius: 5px;font-size:17px; '>立即下单</view>
+      </button>
+    </van-row>
+  </view>
+  <view>
+  </view>
+</view>
